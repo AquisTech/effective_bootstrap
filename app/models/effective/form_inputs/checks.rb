@@ -82,9 +82,9 @@ module Effective
 
       def build_item_wrap(&block)
         if custom?
-          content_tag(:div, yield, class: 'custom-control custom-checkbox ' + (inline? ? 'custom-control-inline' : 'form-group'))
+          content_tag(:div, yield, class: "#{item_input_options[:wrapper_item_class]} custom-control custom-checkbox " + (inline? ? 'custom-control-inline' : 'form-group'))
         else
-          content_tag(:div, yield, class: 'form-check' + (inline? ? ' form-check-inline' : ''))
+          content_tag(:div, yield, class: "#{item_input_options[:wrapper_item_class]} form-check" + (inline? ? ' form-check-inline' : ''))
         end
       end
 
