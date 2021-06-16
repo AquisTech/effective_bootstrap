@@ -23,15 +23,15 @@ module Effective
       end
 
       def datetime_to_s # ruby
-        (value&.strftime(am_pm? ? '%F %I:%M %p' : '%F %H:%M') rescue nil)
+        (value&.strftime(am_pm? ? '%d/%m/%Y %I:%M%p' : '%d/%m/%Y %H:%M') rescue nil)
       end
 
       def pattern # html
-        am_pm? ? '\d{4}(-\d{2})?(-\d{2})?( \d{1,2})?(:\d{2} [aApPmM]{2})?' : '\d{4}(\-d{2})?(-\d{2})?( \d{2})?(:\d{2})?'
+        am_pm? ? '\d{2}(\/\d{2})?(\/\d{4})?( \d{1,2})?(:\d{2} [aApPmM]{2})?' : '\d{2}(\/\d{2})?(\/\d{4})?( \d{2})?(:\d{2})?'
       end
 
       def format # moment.js
-        am_pm? ? 'YYYY-MM-DD LT' : 'YYYY-MM-DD HH:mm'
+        am_pm? ? 'DD/MM/YYYY LT' : 'DD/MM/YYYY HH:mm'
       end
 
       private
