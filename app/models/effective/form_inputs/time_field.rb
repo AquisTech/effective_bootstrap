@@ -19,6 +19,7 @@ module Effective
       end
 
       def datetime_to_s # ruby
+        return value if value.is_a?(String)
         (value&.strftime(am_pm? ? '%I:%M %p' : '%H:%M') rescue nil)
       end
 
