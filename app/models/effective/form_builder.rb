@@ -65,6 +65,10 @@ module Effective
       Effective::FormInputs::EmailField.new(name, options, builder: self).to_html { super(name, options) }
     end
 
+    def color_field(name, options = {})
+      Effective::FormInputs::ColorField.new(name, options, builder: self).to_html { super(name, options) }
+    end
+
     def email_cc_field(name, options = {})
       Effective::FormInputs::EmailCcField.new(name, options, builder: self).to_html
     end
