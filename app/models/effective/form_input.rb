@@ -159,7 +159,7 @@ module Effective
         options[:label][:for] = options[:input][:id]
       end
 
-      text += " <span class='text-danger'>*</span>" if options[:input][:required]
+      text += " <span class='text-danger'>*</span>" if options[:input][:required] && text.present?
       @builder.label(name, text.html_safe, options[:label])
     end
 

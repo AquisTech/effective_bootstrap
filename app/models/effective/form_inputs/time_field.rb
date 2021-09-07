@@ -24,7 +24,7 @@ module Effective
       end
 
       def pattern # html
-        am_pm? ? '\d{1,2}(:\d{2} [aApPmM]{2})?' : '\d{2}(:\d{2})?'
+        am_pm? ? '\d{1,2}(:\d{2}\s*[aApPmM]{2})?' : '\d{2}(:\d{2})?'
       end
 
       def format # moment.js
