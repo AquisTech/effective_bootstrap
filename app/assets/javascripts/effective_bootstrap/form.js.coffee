@@ -189,3 +189,6 @@ $(document).on 'clear', 'form', (event) ->
   $form = $(event.currentTarget)
   EffectiveForm.reset($form)
   setTimeout -> EffectiveForm.clear($form)
+
+$(document).on 'keyup', 'form.form-is-invalid .form-control', (event) ->
+  EffectiveForm.validate(event.currentTarget.form)
