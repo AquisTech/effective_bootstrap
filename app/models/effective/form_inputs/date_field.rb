@@ -19,15 +19,17 @@ module Effective
       end
 
       def datetime_to_s # ruby
-        (value&.strftime('%F') rescue nil)
+        return nil if value.blank?
+        return value if value.is_a?(String)
+        (value&.strftime('%d/%m/%Y') rescue nil)
       end
 
       def pattern # html
-        '\d{4}(-\d{2})?(-\d{2})?'
+        '\d{2}(\/\d{2})?(\/\d{4})?'
       end
 
       def format # moment.js
-        'YYYY-MM-DD'
+        'DD/MM/YYYY'
       end
 
     end
