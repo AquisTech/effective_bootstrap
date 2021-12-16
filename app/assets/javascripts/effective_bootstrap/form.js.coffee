@@ -28,7 +28,7 @@ this.EffectiveForm ||= new class
     $form.addClass('was-validated').addClass('form-is-invalid')
     $form.find('.form-current-submit').removeClass('form-current-submit')
     $form.find('.form-control').each ->
-      if(@.validationMessage.length > 0)
+      if(!!@.validationMessage && @.validationMessage.length > 0)
         $(@).parents('.form-group:first').find('.invalid-feedback').text(@.validationMessage)
 
     # These controls need a little bit of help with client side validations
