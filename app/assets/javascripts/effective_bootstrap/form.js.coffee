@@ -27,6 +27,9 @@ this.EffectiveForm ||= new class
   invalidate: ($form) ->
     $form.addClass('was-validated').addClass('form-is-invalid')
     $form.find('.form-current-submit').removeClass('form-current-submit')
+    $form.find('.form-control').each ->
+      if(!!@.validationMessage && @.validationMessage.length > 0)
+        $(@).parents('.form-group:first').find('.invalid-feedback').text(@.validationMessage)
 
     # These controls need a little bit of help with client side validations
     $form.find('.effective-radios:not(.no-feedback),.effective-checks:not(.no-feedback)').each ->
@@ -186,3 +189,6 @@ $(document).on 'clear', 'form', (event) ->
   $form = $(event.currentTarget)
   EffectiveForm.reset($form)
   setTimeout -> EffectiveForm.clear($form)
+
+$(document).on 'keyup', 'form.form-is-invalid .form-control', (event) ->
+  EffectiveForm.validate(event.currentTarget.form)
